@@ -2,6 +2,7 @@ import customtkinter as ctk
 from PIL import Image
 import textwrap
 import webbrowser
+import os
 
 pc_configs = {
     "trabalho": {
@@ -83,6 +84,14 @@ pc_configs = {
     }
 }
 
+# Funções acesso externo
+def comprar_pecas():
+    url = "https://www.kabum.com.br/"
+    webbrowser.open(url)
+
+def abrir_url(url):
+    webbrowser.open(url)
+
 # Funções de navegação e exibição
 def mostrar_frame(frame):
     for f in frames:
@@ -91,10 +100,6 @@ def mostrar_frame(frame):
 
 def abrir_orcamento():
     mostrar_frame(frame_orcamento)
-
-def comprar_pecas():
-    url = "https://www.kabum.com.br/"
-    webbrowser.open(url)
 
 def abrir_faixa_orcamento(objetivo):
     global objetivo_selecionado
@@ -194,7 +199,7 @@ def exibir_detalhes(opcao):
     elif opcao == 'Opção Avançada':
         pc = 2
 
-    caminhoImg = f'img/{objetivo_selecionado}/{pc}.png'
+    caminhoImg = f'assets/img/{objetivo_selecionado}/{pc}.png'
     imagem = ctk.CTkImage(light_image=Image.open(caminhoImg), dark_image=Image.open(caminhoImg), size=(300, 300))
     label_imagem = ctk.CTkLabel(frame_detalhes, text='', image=imagem)
     label_imagem.place(x= 670, y=50)
@@ -230,14 +235,14 @@ frames = [frame_inicial, frame_orcamento, frame_faixa_orcamento, frame_opcoes, f
 
 # Frame inicial
 botao_orcamento = ctk.CTkButton(frame_inicial, text="Orçamento", command=abrir_orcamento, height=85, width=430)
-botao_planilha = ctk.CTkButton(frame_inicial, text="Tutorial", height=85, width=430)
+botao_planilha = ctk.CTkButton(frame_inicial, text="Tutorial", height=85, width=430, command=abrir_url())
 botao_sair = ctk.CTkButton(frame_inicial, text="Sair", command=sair, height=85, width=430)
 
 botao_orcamento.place(x=30, y=150)
 botao_planilha.place(x=30, y=250)
 botao_sair.place(x=30, y=350)
     #imagem
-my_image = ctk.CTkImage(light_image=Image.open('img/logo.png'), dark_image=Image.open('img/logo.png'), size=(325, 325))
+my_image = ctk.CTkImage(light_image=Image.open('assets/img/logo.png'), dark_image=Image.open('assets/img/logo.png'), size=(325, 325))
 label_img = ctk.CTkLabel(frame_inicial, text='', image=my_image);
 label_img.pack(pady=10);
 label_img.place(x= 600, y=140)
