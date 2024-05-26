@@ -152,7 +152,7 @@ def exibir_opcoes(faixa):
 
     ctk.CTkLabel(frame_opcoes, text=f"Opções de PC para {objetivo_selecionado} na faixa {faixa_selecionada}:", font=("Arial", 20)).pack(pady=20)
     for option in options:
-        ctk.CTkButton(frame_opcoes, text=option, command=lambda opt=option: exibir_detalhes(opt), width=430, height=85).pack(pady=10)
+        ctk.CTkButton(frame_opcoes, text=option, command=lambda opt=option: exibir_detalhes(opt), width=430, height=85, font=("Arial", 20)).pack(pady=10)
 
     ctk.CTkButton(frame_opcoes, text="Voltar", command=lambda: mostrar_frame(frame_faixa_orcamento), height=40, width=100).place(x=30, y=480)
 
@@ -181,13 +181,13 @@ def exibir_detalhes(opcao):
             if isinstance(detalhe, list):
                 componente_quebrada = "\n".join(textwrap.wrap(detalhe[0], width=60))
 
-                ctk.CTkLabel(scrollable_frame, text=f"{componente}: {componente_quebrada} (Preço: R${detalhe[1]})", font=("Arial", 12), justify="left").pack(pady=5)
+                ctk.CTkLabel(scrollable_frame, text=f"{componente}: {componente_quebrada} (Preço: R${detalhe[1]})", font=("Arial", 13), justify="left").pack(pady=5)
             else:
-                ctk.CTkLabel(scrollable_frame, text=f"{componente}: {detalhe} (Preço Total)", font=("Arial", 12)).pack(pady=5)
+                ctk.CTkLabel(scrollable_frame, text=f"{componente}: {detalhe} (Preço Total)", font=("Arial", 20)).pack(pady=5)
         else:
             descricao = detalhe
             descricao_quebrada = "\n".join(textwrap.wrap(descricao, width=80))
-            ctk.CTkLabel(scrollable_descricao, text=f"{componente}: {descricao_quebrada}", justify="left").pack(pady=5)
+            ctk.CTkLabel(scrollable_descricao, text=f"{componente}: {descricao_quebrada}", justify="left",font=("Arial", 13)).pack(pady=5)
             
 
     # Adição da imagem ao lado direito
@@ -220,6 +220,7 @@ app = ctk.CTk()
 app.title("Build Solutions")
 app.geometry("1000x550")
 app.resizable(width=False, height=False);
+app.iconbitmap('assets/icon.ico')
 
 # Variáveis globais
 objetivo_selecionado = ""
@@ -234,9 +235,9 @@ frame_detalhes = ctk.CTkFrame(app)
 frames = [frame_inicial, frame_orcamento, frame_faixa_orcamento, frame_opcoes, frame_detalhes]
 
 # Frame inicial
-botao_orcamento = ctk.CTkButton(frame_inicial, text="Orçamento", command=abrir_orcamento, height=85, width=430)
-botao_tutorial = ctk.CTkButton(frame_inicial, text="Tutorial", height=85, width=430, command=abrir_url)
-botao_sair = ctk.CTkButton(frame_inicial, text="Sair", command=sair, height=85, width=430)
+botao_orcamento = ctk.CTkButton(frame_inicial, text="Orçamento", command=abrir_orcamento, height=85, width=430, font=("Arial", 20))
+botao_tutorial = ctk.CTkButton(frame_inicial, text="Tutorial", height=85, width=430, command=abrir_url, font=("Arial", 20))
+botao_sair = ctk.CTkButton(frame_inicial, text="Sair", command=sair, height=85, width=430, font=("Arial", 20))
 
 botao_orcamento.place(x=30, y=150)
 botao_tutorial.place(x=30, y=250)
@@ -245,25 +246,25 @@ botao_sair.place(x=30, y=350)
 my_image = ctk.CTkImage(light_image=Image.open('assets/img/logo.png'), dark_image=Image.open('assets/img/logo.png'), size=(325, 325))
 label_img = ctk.CTkLabel(frame_inicial, text='', image=my_image);
 label_img.pack(pady=10);
-label_img.place(x= 600, y=140)
+label_img.place(x= 600, y=130)
 
 # Frame de foco
 ctk.CTkLabel(frame_orcamento, text="Escolha o objetivo do PC:", font=("Arial", 20)).place(relx=0.5, rely=0.1, anchor="center")
 
-ctk.CTkButton(frame_orcamento, text="Trabalho", command=lambda: abrir_faixa_orcamento("trabalho"), height=85, width=200).place(x=100, y=250)
-ctk.CTkButton(frame_orcamento, text="Jogo", command=lambda: abrir_faixa_orcamento("jogo"), height=85, width=200).place(x=400, y=250)
-ctk.CTkButton(frame_orcamento, text="Estudo", command=lambda: abrir_faixa_orcamento("estudo"), height=85, width=200).place(x=700, y=250)
+ctk.CTkButton(frame_orcamento, text="Trabalho", command=lambda: abrir_faixa_orcamento("trabalho"), height=85, width=200, font=("Arial", 20)).place(x=100, y=250)
+ctk.CTkButton(frame_orcamento, text="Jogo", command=lambda: abrir_faixa_orcamento("jogo"), height=85, width=200, font=("Arial", 20)).place(x=400, y=250)
+ctk.CTkButton(frame_orcamento, text="Estudo", command=lambda: abrir_faixa_orcamento("estudo"), height=85, width=200, font=("Arial", 20)).place(x=700, y=250)
 
-ctk.CTkButton(frame_orcamento, text="Voltar", command=lambda: mostrar_frame(frame_inicial), height=40, width=100).place(x=30, y=480)
+ctk.CTkButton(frame_orcamento, text="Voltar", command=lambda: mostrar_frame(frame_inicial), height=40, width=100, font=("Arial", 20)).place(x=30, y=480)
 
 # Frame de faixa de orçamento
 ctk.CTkLabel(frame_faixa_orcamento, text="Selecione a faixa de orçamento:", font=("Arial", 20)).pack(pady=20)
 
-faixa1 = ctk.CTkButton(frame_faixa_orcamento, text="", height=85, width=430)
+faixa1 = ctk.CTkButton(frame_faixa_orcamento, text="", height=85, width=430, font=("Arial", 20))
 faixa1.pack(pady=10)
-faixa2 = ctk.CTkButton(frame_faixa_orcamento, text="", height=85, width=430)
+faixa2 = ctk.CTkButton(frame_faixa_orcamento, text="", height=85, width=430, font=("Arial", 20))
 faixa2.pack(pady=10)
-faixa3 = ctk.CTkButton(frame_faixa_orcamento, text="", height=85, width=430)
+faixa3 = ctk.CTkButton(frame_faixa_orcamento, text="", height=85, width=430, font=("Arial", 20))
 faixa3.pack(pady=10)
 
 ctk.CTkButton(frame_faixa_orcamento, text="Voltar", command=lambda: mostrar_frame(frame_orcamento), height=40, width=100).place(x=30, y=480)
