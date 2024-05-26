@@ -2,7 +2,6 @@ import customtkinter as ctk
 from PIL import Image
 import textwrap
 import webbrowser
-import os
 
 pc_configs = {
     "trabalho": {
@@ -85,11 +84,12 @@ pc_configs = {
 }
 
 # Funções acesso externo
-def comprar_pecas():
-    url = "https://www.kabum.com.br/"
+def abrir_url():
+    url = 'https://github.com/ImSena/buildSolutions/blob/master/assets/ebook.pdf'
     webbrowser.open(url)
 
-def abrir_url(url):
+def comprar_pecas():
+    url = 'https://www.kabum.com.br'
     webbrowser.open(url)
 
 # Funções de navegação e exibição
@@ -235,11 +235,11 @@ frames = [frame_inicial, frame_orcamento, frame_faixa_orcamento, frame_opcoes, f
 
 # Frame inicial
 botao_orcamento = ctk.CTkButton(frame_inicial, text="Orçamento", command=abrir_orcamento, height=85, width=430)
-botao_planilha = ctk.CTkButton(frame_inicial, text="Tutorial", height=85, width=430, command=abrir_url())
+botao_tutorial = ctk.CTkButton(frame_inicial, text="Tutorial", height=85, width=430, command=abrir_url)
 botao_sair = ctk.CTkButton(frame_inicial, text="Sair", command=sair, height=85, width=430)
 
 botao_orcamento.place(x=30, y=150)
-botao_planilha.place(x=30, y=250)
+botao_tutorial.place(x=30, y=250)
 botao_sair.place(x=30, y=350)
     #imagem
 my_image = ctk.CTkImage(light_image=Image.open('assets/img/logo.png'), dark_image=Image.open('assets/img/logo.png'), size=(325, 325))
