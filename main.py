@@ -45,7 +45,7 @@ pc_configs = {
     },
     "jogo": {
         "Opção Básica": {
-            "Descrição": "A opção avançada é ideal para profissionais que exigem o máximo desempenho para cargas de trabalho intensivas. Com um processador Intel Core i7-12700F e 32GB de memória XPG Gammix D35, este PC oferece poder de processamento excepcional para renderização de vídeo, modelagem 3D e outras tarefas exigentes. A placa de vídeo RTX 4060 Ti Click OC Galax NVIDIA GeForce proporciona gráficos impressionantes para jogos AAA e criação de conteúdo.",
+            "Descrição": "A opção econômica e eficiente é ideal para quem precisa de um desempenho sólido em tarefas do dia a dia e jogos leves. Com um processador AMD Ryzen 5 4500 e 16GB de memória XPG Gammix D35, este PC oferece um bom equilíbrio entre desempenho e custo-benefício. A placa de vídeo Galax NVIDIA GeForce GTX 1650 EX Plus (1-Click OC) proporciona gráficos decentes para jogos casuais e trabalho de criação de conteúdo moderado",
             "Processador": ["Processador AMD Ryzen 5 4500", 450],
             "Placa-Mãe": ["Placa Mãe ASRock B450M-HDV R4.0 DDR4", 360],
             "Memória": ["Memória XPG Gammix D35, 2x 8GB, 3200MHz, DDR4", 300],
